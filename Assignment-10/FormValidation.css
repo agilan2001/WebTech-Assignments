@@ -1,0 +1,62 @@
+body {
+    background: black;
+}
+
+div {
+    width: max-content;
+    margin: auto;
+    font-family: cursive;
+    background-color: lightblue;
+    border: 5px solid green;
+    padding: 0 20px;
+}
+
+.err {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+    padding: 0 0 12px 12px;
+    border: 0;
+    height: 35px;
+}
+
+h1 {
+    text-align: center;
+
+}
+
+.detail {
+    text-align: right;
+    background-color: pink;
+    font-weight: bold;
+    border-radius: 10px 0 0 10px;
+
+}
+
+.data {
+    width: 300px;
+    background-color: lightyellow;
+    border-radius: 0 10px 10px 0;
+
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 10px;
+}
+
+#reset_btn,
+#sub_btn {
+    font-size: 20px;
+    background-color: lightgreen;
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#reset_btn {
+    background-color: orange;
+}
