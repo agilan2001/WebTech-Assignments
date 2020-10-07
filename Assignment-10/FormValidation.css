@@ -11,18 +11,22 @@ div {
     padding: 0 20px;
 }
 
+.detail, .err, input , select , .data{
+    font-size: 2vh;
+}
+
 .err {
     color: red;
     font-style: italic;
     font-weight: bold;
     padding: 0 0 12px 12px;
     border: 0;
-    height: 35px;
+    height: 5vh;
 }
 
 h1 {
     text-align: center;
-
+    font-size: 3vh;
 }
 
 .detail {
@@ -34,7 +38,7 @@ h1 {
 }
 
 .data {
-    width: 300px;
+    width: 40vh;
     background-color: lightyellow;
     border-radius: 0 10px 10px 0;
 
@@ -50,7 +54,7 @@ table td {
 
 #reset_btn,
 #sub_btn {
-    font-size: 20px;
+    font-size: 2vh;
     background-color: lightgreen;
     border: 2px solid white;
     padding: 5px;
