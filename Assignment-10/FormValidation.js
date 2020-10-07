@@ -5,7 +5,7 @@ alert("WEB-TECH ASSIGNMENT : 10 \nSimple Form Validation in JS \n--AGILAN-- ");
             var name = document.detailsForm.name_txt.value.trim();
             var name_err = document.getElementById("name_err");
             //Validation rule : name contains only alphabets and space 
-            if (!(/[a-zA-Z\s]+/.test(name))) {
+            if (!(/^[a-zA-Z\s]+$/.test(name))) {
                 isError = true;
                 name_err.innerHTML = "*should contain only letters and spaces";
 
