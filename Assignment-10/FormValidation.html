@@ -1,0 +1,276 @@
+<html>
+
+<head>
+    <title>JavaScript Form Validation Exercise</title>
+
+    <style>
+        body {
+            background: black;
+        }
+
+        div {
+            width: max-content;
+            margin: auto;
+            font-family: cursive;
+            background-color: lightblue;
+            border: 5px solid green;
+            padding: 0 20px;
+        }
+
+        .err {
+            color: red;
+            font-style: italic;
+            font-weight: bold;
+            padding: 0 0 12px 12px;
+            border: 0;
+            height: 35px;
+        }
+
+        h1 {
+            text-align: center;
+
+        }
+
+        .detail {
+            text-align: right;
+            background-color: pink;
+            font-weight: bold;
+            border-radius: 10px 0 0 10px;
+
+        }
+
+        .data {
+            width: 300px;
+            background-color: lightyellow;
+            border-radius: 0 10px 10px 0;
+
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table td {
+            padding: 10px;
+        }
+
+        #reset_btn,
+        #sub_btn {
+            font-size: 20px;
+            background-color: lightgreen;
+            border: 2px solid white;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        #reset_btn {
+            background-color: orange;
+        }
+    </style>
+
+
+    <script>
+        alert("WEB-TECH ASSIGNMENT : 10 \nSimple Form Validation in JS \n--AGILAN-- ");
+        function validateForm() {
+            var isError = false;
+
+            var name = document.detailsForm.name_txt.value.trim();
+            var name_err = document.getElementById("name_err");
+            //Validation rule : name contains only alphabets and space 
+            if (!(/[a-zA-Z\s]+/.test(name))) {
+                isError = true;
+                name_err.innerHTML = "*should contain only letters and spaces";
+
+            } else {
+                name_err.innerHTML = "";
+            }
+
+            var reg = document.detailsForm.reg_no.value;
+            var reg_err = document.getElementById("reg_err");
+            //Validation rule : reg_no contains 10 digits
+            if (reg.length != 10) {
+                isError = true;
+                reg_err.innerHTML = "*should contain 10 digits";
+            } else {
+                reg_err.innerHTML = "";
+            }
+
+            var dob = document.detailsForm.dob.value;
+            var dob_err = document.getElementById("dob_err");
+            //Validation rule : STUDENT should be atleast 18 years of age
+            if (!dob || new Date().getFullYear() - new Date(dob).getFullYear() < 18) {
+                isError = true;
+                dob_err.innerHTML = "*you should be atleast 18 years";
+            } else {
+                dob_err.innerHTML = "";
+            }
+
+            var gen = document.detailsForm.gender.value;
+            var gen_err = document.getElementById("gender_err");
+            //Validation rule : should have selected a department
+            if (gen == "") {
+                isError = true;
+                gen_err.innerHTML = "*please select your gender";
+            } else {
+                gen_err.innerHTML = "";
+            }
+
+            var dep = document.detailsForm.dep_select.value;
+            var dep_err = document.getElementById("dep_err");
+            //Validation rule : should have selected a department
+            if (dep == "") {
+                isError = true;
+                dep_err.innerHTML = "*please select your department";
+            } else {
+                dep_err.innerHTML = "";
+            }
+
+            var bld = document.detailsForm.blood_txt.value;
+            var bld_err = document.getElementById("blood_err");
+            //Validation rule : A B O AB +ve or -ve
+            if (!(/^(A|B|O|AB)[+-]$/.test(bld))) {
+                isError = true;
+                bld_err.innerHTML = "*Invalid Blood Group";
+            } else {
+                bld_err.innerHTML = "";
+            }
+
+            var mail = document.detailsForm.email_txt.value;
+            var mail_err = document.getElementById("email_err");
+            /*Validation rule : 
+                ***This regex is just copied from the reference PDF***
+                Beginning                    ^ 
+                Alphabet       atleast 1     \w+               xyz
+                @ character                  @                 @
+                Alphabet or _  atleast 1     [a-zA-Z_]+        gmail
+                . character                  \.                .
+                Alphabet       2 or 3        [a-zA-Z]{2,3}     com
+                End                          $
+            */
+            if (!(/^\w+@[a-zA-Z_]+\.[a-zA-Z]{2,3}$/.test(mail))) {
+                isError = true;
+                mail_err.innerHTML = "*Invalid Email ID";
+            } else {
+                mail_err.innerHTML = "";
+            }
+
+            var phone = document.detailsForm.phone_no.value;
+            var phone_err = document.getElementById("phone_err");
+            //Validation rule : phone_no contains 10 digits
+            if (phone.length != 10) {
+                isError = true;
+                phone_err.innerHTML = "*should contain 10 digits";
+            } else {
+                phone_err.innerHTML = "";
+            }
+
+            if (!(isError)) {
+                alert("Your FORM is SUCCESSFULLY submitted");
+                return true;
+            } else return false;
+        }
+
+        function clearData() {
+            document.getElementById("name_err").innerHTML="";
+            document.getElementById("reg_err").innerHTML="";
+            document.getElementById("dob_err").innerHTML="";
+            document.getElementById("gender_err").innerHTML="";
+            document.getElementById("dep_err").innerHTML="";
+            document.getElementById("blood_err").innerHTML="";
+            document.getElementById("email_err").innerHTML="";
+            document.getElementById("phone_err").innerHTML="";
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>Fill this, My Friend 😊</h1>
+        <form name="detailsForm" method="post" action="#" onsubmit="return validateForm();" onreset="clearData();">
+            <table>
+                <tr>
+                    <td class="detail">Name</td>
+                    <td class="data"><input name="name_txt" type="text" placeholder="your good name..."></td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td class="err" id="name_err"></td>
+                </tr>
+                <tr>
+                    <td class="detail">Register Number</td>
+                    <td class="data"><input name="reg_no" type="number" placeholder="your reg. number..."></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="err" id="reg_err"></td>
+                </tr>
+                <tr>
+                    <td class="detail">Date of Birth</td>
+                    <td class="data"><input name="dob" type="date"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="err" id="dob_err"></td>
+                </tr>
+                <tr>
+                    <td class="detail">Gender</td>
+                    <td class="data">
+                        <input type="radio" name="gender" value="M">Male
+                        <input type="radio" name="gender" value="F">Female
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="err" id="gender_err"></td>
+                </tr>
+                <tr>
+                    <td class="detail">Department</td>
+                    <td class="data">
+                        <select name="dep_select">
+                            <option value="" disabled selected>--SELECT--</option>
+                            <option>ECE</option>
+                            <option>IT</option>
+                            <option>CS</option>
+                            <option>MECH</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="err" id="dep_err"></td>
+                </tr>
+                <tr>
+                    <td class="detail">Blood Group</td>
+                    <td class="data"><input name="blood_txt" type="text" placeholder="your Blood Group..."></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="err" id="blood_err"></td>
+                </tr>
+                <tr>
+                    <td class="detail">Email ID</td>
+                    <td class="data"><input name="email_txt" type="email" placeholder="abc@xyz.com"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="err" id="email_err"></td>
+                </tr>
+                <tr>
+                    <td class="detail">Mobile Number</td>
+                    <td class="data"><input name="phone_no" type="tel" placeholder="Phone..."></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="err" id="phone_err"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align: right;"><input id="reset_btn" type="reset" value="RESET"> <input id="sub_btn"
+                            type="submit" value="SUBMIT"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
