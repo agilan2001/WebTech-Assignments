@@ -5,7 +5,7 @@ body {
 div {
     width: max-content;
     margin: auto;
-    font-family: sans-serif;
+    font-family: Arial;
     background-color: lightblue;
     border: 5px solid green;
     padding: 0 20px;
