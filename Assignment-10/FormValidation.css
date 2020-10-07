@@ -52,6 +52,10 @@ table {
 table td {
     padding: 10px;
 }
+ .radio{
+    height: 1.5vh;
+    width: 1.5vh;
+ }
 
 #reset_btn,
 #sub_btn {
