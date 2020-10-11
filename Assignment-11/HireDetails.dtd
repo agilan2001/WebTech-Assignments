@@ -1,0 +1,13 @@
+<!ELEMENT HireDetails (HireItem+)>
+<!ELEMENT HireItem (CustomerName,hiredate,ProductDetails)>
+<!ELEMENT CustomerName (firstname,lastname)>
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT lastname (#PCDATA)>
+<!ELEMENT hiredate (day,month,year)>
+<!ELEMENT day (#PCDATA)>
+<!ELEMENT month (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT ProductDetails (product,price)>
+<!ELEMENT product (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ATTLIST HireItem id CDATA #REQUIRED>

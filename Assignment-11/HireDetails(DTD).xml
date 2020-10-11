@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HireDetails SYSTEM "HireDetails.dtd">
+<HireDetails>
+    <HireItem id="111">
+        <CustomerName>
+            <firstname>Kelly</firstname>
+            <lastname>Grace</lastname>
+        </CustomerName>
+        <hiredate>
+            <day>15</day>
+            <month>October</month>
+            <year>2005</year>
+        </hiredate>
+        <ProductDetails>
+            <product>Printer</product>
+            <price>111</price>
+        </ProductDetails>
+    </HireItem>
+    <HireItem id="112">
+        <CustomerName>
+            <firstname>Longo</firstname>
+            <lastname>Mich</lastname>
+        </CustomerName>
+        <hiredate>
+            <day>17</day>
+            <month>January</month>
+            <year>2004</year>
+        </hiredate>
+        <ProductDetails>
+            <product>Printer</product>
+            <price>111</price>
+        </ProductDetails>
+    </HireItem>
+    <HireItem id="114">
+        <CustomerName>
+            <firstname>Mohammed</firstname>
+            <lastname>Shahul</lastname>
+        </CustomerName>
+        <hiredate>
+            <day>5</day>
+            <month>November</month>
+            <year>2005</year>
+        </hiredate>
+        <ProductDetails>
+            <product>Television</product>
+            <price>115</price>
+        </ProductDetails>
+    </HireItem>
+</HireDetails> 

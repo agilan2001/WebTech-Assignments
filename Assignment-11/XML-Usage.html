@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title>Using XML in HTML</title>
+    <style>
+        body, #details_select{
+            font-size: 3vh;
+        }
+        body{
+            background-color: lightblue;
+        }
+        span{
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>PRODUCT HIRE DETAILS</h1>
+    SELECT ID:
+    <select id="details_select" onchange="select_change()">
+        <option value="" disabled selected>-- SELECT --</option>
+    </select>
+    <br><br>
+    <u>Customer Details</u><br>
+    First Name: <span id="first_name_span"></span><br>
+    Last Name: <span id="last_name_span"></span><br><br>
+    Hired on: <span id="hired_on_span"></span><br><br>
+    <u>Product Details</u><br>
+    Product Name: <span id="prod_name_span"></span><br>
+    Product Price: $ <span id="prod_price_span"></span><br>
+    
+
+    <script>
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "HireDetails(XSD).xml", false);
+        xhr.send();
+        result = xhr.responseXML;
+        for (var x of result.getElementsByTagName("HireItem")) {
+            document.getElementById("details_select").innerHTML += "<option>" + x.id + "</option>";
+                console.log(x.id)
+        }
+
+        function select_change(){
+            var sel_id = document.getElementById("details_select").value;
+            var intemNode = result.getElementById(sel_id);
+            document.getElementById("first_name_span").innerHTML=intemNode.getElementsByTagName("CustomerName")[0].getElementsByTagName("firstname")[0].childNodes[0].nodeValue;
+            document.getElementById("last_name_span").innerHTML=intemNode.getElementsByTagName("CustomerName")[0].getElementsByTagName("lastname")[0].childNodes[0].nodeValue;
+
+            var temp="";
+            temp+=intemNode.getElementsByTagName("hiredate")[0].getElementsByTagName("month")[0].childNodes[0].nodeValue + " " ;
+            temp+=intemNode.getElementsByTagName("hiredate")[0].getElementsByTagName("day")[0].childNodes[0].nodeValue + ", ";
+            temp+=intemNode.getElementsByTagName("hiredate")[0].getElementsByTagName("year")[0].childNodes[0].nodeValue;
+            document.getElementById("hired_on_span").innerHTML=temp;
+
+            document.getElementById("prod_name_span").innerHTML=intemNode.getElementsByTagName("ProductDetails")[0].getElementsByTagName("product")[0].childNodes[0].nodeValue;
+            document.getElementById("prod_price_span").innerHTML=intemNode.getElementsByTagName("ProductDetails")[0].getElementsByTagName("price")[0].childNodes[0].nodeValue;
+        }
+    </script>
+
+</body>
+
+</html>

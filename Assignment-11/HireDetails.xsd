@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="HireDetailsNamespace" 
+    xmlns="HireDetailsNamespace"
+    elementFormDefault="qualified">
+    <xs:element name="HireDetails">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="HireItem" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="CustomerName">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="firstname">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:pattern value="[a-zA-Z\s]+"></xs:pattern>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="lastname">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:pattern value="[a-zA-Z\s]+"></xs:pattern>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="hiredate">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="day">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:integer">
+                                                    <xs:minInclusive value="1" />
+                                                    <xs:maxInclusive value="31" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="month">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="January" />
+                                                    <xs:enumeration value="February" />
+                                                    <xs:enumeration value="March" />
+                                                    <xs:enumeration value="April" />
+                                                    <xs:enumeration value="May" />
+                                                    <xs:enumeration value="June" />
+                                                    <xs:enumeration value="July" />
+                                                    <xs:enumeration value="August" />
+                                                    <xs:enumeration value="September" />
+                                                    <xs:enumeration value="October" />
+                                                    <xs:enumeration value="November" />
+                                                    <xs:enumeration value="December" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="year" type="xs:positiveInteger" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ProductDetails">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="product" type="xs:string" />
+                                        <xs:element name="price" type="xs:float" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:positiveInteger"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+
+    </xs:element>
+</xs:schema>
