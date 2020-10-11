@@ -40,7 +40,7 @@
         result = xhr.responseXML;
         for (var x of result.getElementsByTagName("HireItem")) {
             document.getElementById("details_select").innerHTML += "<option>" + x.id + "</option>";
-                console.log(x.id)
+                //console.log(x.id)
         }
 
         function select_change(){
